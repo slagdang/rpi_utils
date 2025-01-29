@@ -457,7 +457,7 @@ static void rp1_pio_sm_set_consecutive_pindirs(PIO pio, uint sm, uint pin_base, 
     check_sm_param(sm);
     valid_params_if(PIO, pin_base < RP1_PIO_GPIO_COUNT &&
                     pin_count < RP1_PIO_GPIO_COUNT &&
-                    (pin_base + pin_count) < RP1_PIO_GPIO_COUNT);
+                    (pin_base + pin_count) <= RP1_PIO_GPIO_COUNT);
     (void)rp1_ioctl(pio, PIO_IOC_SM_SET_PINDIRS, &args);
 }
 
